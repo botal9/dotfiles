@@ -120,13 +120,17 @@ nnoremap <A-Right> :bp!<CR>
 " CTRL-F4 is :tabclose
 nnoremap <C-F4> :bwipeout!<CR>
 " Close all buffers except this
-nnoremap <C-P> <C-W>o
+nnoremap <C-O> <C-W>o
 
 " SingleCompiler
 nmap <F5> :SCCompile<CR>
 nmap <F9> :SCCompileRun<CR>
 let g:SingleCompile_showquickfixiferror = 1
-    
+
+" YouCompleteMe aka YCM
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 " NERDtree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeAutoDeleteBuffer = 1

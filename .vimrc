@@ -8,18 +8,21 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'scrooloose/nerdtree'
+Plugin 'kana/vim-operator-user'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'xuhdev/singlecompile'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'dracula/vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'bitc/vim-hdevtools'
+Plugin 'bitc/vim-hdevtools'             " If use Haskell
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call vundle#end()                       " required
 execute pathogen#infect()
-filetype plugin indent on    " required
+filetype plugin indent on               " required
 
 " For tabs and indent
 " set tabstop=4
@@ -27,7 +30,7 @@ set softtabstop=4
 set shiftwidth=4
 set smarttab
 set smartindent
-set expandtab              " Always uses spaces instead of tabs
+set expandtab                           " Always uses spaces instead of tabs
 set tabstop=8              
 
 " Autoreloading file
@@ -61,7 +64,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_cpp_checkers = ['cppcheck']
-let g:syntastic_haskell_checkers = ['hdevtools']
+let g:syntastic_haskell_checkers = ['hdevtools']    " If use Haskell
 let g:ycm_show_diagnostics_ui = 0
 
 " Search
@@ -95,14 +98,14 @@ set ai
 set cin
 
 " Other
-set backspace=indent,eol,start " allow backspacing over everything in insert mode.
-set history=200		" keep 200 lines of command line history
-set ruler	        " show the cursor position all the time
-set showcmd		    " display incomplete commands
-set wildmenu		" display completion matches in a status line
-set ttimeout		" time out for key codes
-set ttimeoutlen=100	" wait up to 100ms after Esc for special key
-set scrolloff=5 " show a few lines of context around the cursor.
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode.
+set history=200		        " keep 200 lines of command line history
+set ruler	                " show the cursor position all the time
+set showcmd		        " display incomplete commands
+set wildmenu		        " display completion matches in a status line
+set ttimeout		        " time out for key codes
+set ttimeoutlen=100	        " wait up to 100ms after Esc for special key
+set scrolloff=5                 " show a few lines of context around the cursor.
 set autochdir
 
 " Bindings
@@ -113,23 +116,33 @@ nnoremap <Tab> <C-W>w
 nnoremap <S-Tab> <C-W>W
 
 " Bindings for buffers
-" CTRL-Tab is Next tab
-nnoremap <A-Left> :bn!<CR>
-" CTRL-Shift-Tab is Previous tab
-nnoremap <A-Right> :bp!<CR>
-" CTRL-F4 is :tabclose
-nnoremap <C-F4> :bwipeout!<CR>
+" Alt-Right is Next buffer
+nnoremap <A-Right> :bn!<CR>
+" Alt-Left is Previous buffer
+nnoremap <A-Left> :bp!<CR>
+" Alt-Down to close buffer
+nnoremap <A-Down> :bd!<CR>
 " Close all buffers except this
-nnoremap <C-O> <C-W>o
+nnoremap <C-P> <C-W>o
 
 " SingleCompiler
 nmap <F5> :SCCompile<CR>
 nmap <F9> :SCCompileRun<CR>
 let g:SingleCompile_showquickfixiferror = 1
 
+" vim-cpp-enhanced-hightlith
+let g:cpp_class_scope_highlight = 1
+
+" vim-clang-format
+" Dont forget to install clang-fromat
+let g:clang_format#command = "/usr/bin/clang-format"
+map <C-K> <Plug>(operator-clang-format)
+
 " YouCompleteMe aka YCM
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '~/vim_config/global_extra_conf.py'
+let g:ycm_log_level = 'error'
 
 " NERDtree
 map <C-n> :NERDTreeToggle<CR>

@@ -141,7 +141,7 @@ map <C-K> <Plug>(operator-clang-format)
 " YouCompleteMe aka YCM
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/vim_config/global_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/dotfiles/global_extra_conf.py'
 let g:ycm_log_level = 'error'
 
 " NERDtree

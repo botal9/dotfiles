@@ -1,0 +1,22 @@
+[user]
+    name = Vitalii Ovechkin
+    email = vitaliy.ovechkin.99@mail.ru
+
+[core]
+    editor = vim
+
+[merge]
+    tool = vimdiff
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+
+[color]
+    ui = auto
+
+[log]
+    decorate = true
+    showSignature = true

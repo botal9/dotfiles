@@ -1,1 +1,3 @@
-# system_config
+# Pump ur vim
+
+All you need is `:PlugInstall`.

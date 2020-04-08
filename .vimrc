@@ -1,3 +1,7 @@
+" -------------------------------------------------------------------------------------------------
+" -------------------------------------------- Plugins --------------------------------------------
+" -------------------------------------------------------------------------------------------------
+
 " Vundle configuration
 set nocompatible 
 filetype off
@@ -16,10 +20,13 @@ Plugin 'vim-scripts/AutoClose'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'xuhdev/singlecompile'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'dracula/vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/incsearch-fuzzy.vim'
+
+" Color schemes
+Plugin 'sainnhe/gruvbox-material'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()                       " required
@@ -32,13 +39,17 @@ filetype plugin indent on               " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
+" -------------------------------------------------------------------------------------------------
+" ------------------------------------- Mappings and settings -------------------------------------
+" -------------------------------------------------------------------------------------------------
+
 " For tabs and indent
 " set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab
 set smartindent
-set expandtab                           " Always uses spaces instead of tabs
+set expandtab       " Always uses spaces instead of tabs
 set tabstop=8              
 
 " Autoreloading file
@@ -93,7 +104,6 @@ if has('gui')
     set guioptions-=mrLtT
 endif
 
-color dracula
 syntax on
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -162,13 +172,16 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+" -------------------------------------------------------------------------------------------------
+" ----------------------------------- Airline and color schemes -----------------------------------
+" -------------------------------------------------------------------------------------------------
+
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_theme = 'dark'
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='powerlineish'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -178,3 +191,9 @@ let g:airline_right_sep = ''
 let g:airline_linecolumn_prefix = '¶ '
 let g:airline_fugitive_prefix = '⎇ '
 let g:airline_paste_symbol = 'ρ'
+
+" set termguicolors                             " gruvbox-material 
+" colorscheme gruvbox-material
+" let g:airline_theme = 'gruvbox_material'
+
+color dracula                                   " dracula

@@ -98,18 +98,6 @@ map fg/ <Plug>(incsearch-fuzzy-stay)
 " Clipboard
 set clipboard=unnamedplus
 
-" GUI and font
-" language english
-if has('gui')
-    set guioptions-=mrLtT
-endif
-
-syntax on
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
-
 " For coding
 if !exists("g:syntax_on")
     syntax enable
@@ -173,8 +161,20 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 " -------------------------------------------------------------------------------------------------
-" ----------------------------------- Airline and color schemes -----------------------------------
+" ---------------------------------------------- GUI ----------------------------------------------
 " -------------------------------------------------------------------------------------------------
+
+" GUI and font
+" language english
+if has('gui')
+    set guioptions-=mrLtT
+endif
+
+syntax on
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -192,8 +192,8 @@ let g:airline_linecolumn_prefix = '¶ '
 let g:airline_fugitive_prefix = '⎇ '
 let g:airline_paste_symbol = 'ρ'
 
-" set termguicolors                             " gruvbox-material 
-" colorscheme gruvbox-material
-" let g:airline_theme = 'gruvbox_material'
-
+" Color schemes
 color dracula                                   " dracula
+
+" colorscheme gruvbox-material                  " gruvbox-material
+" let g:airline_theme = 'gruvbox_material'

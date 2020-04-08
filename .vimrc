@@ -18,12 +18,19 @@ Plugin 'xuhdev/singlecompile'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'dracula/vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'bitc/vim-hdevtools'             " If use Haskell
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch-fuzzy.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()                       " required
 execute pathogen#infect()
 filetype plugin indent on               " required
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " For tabs and indent
 " set tabstop=4
@@ -49,11 +56,6 @@ set noswapfile
 set nobackup
 set noundofile
 
-" Haskell
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsInfo<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsClear<CR>
-
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -64,6 +66,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_cpp_checkers = ['cppcheck']
 let g:syntastic_haskell_checkers = ['hdevtools']    " If use Haskell
 let g:ycm_show_diagnostics_ui = 0
@@ -72,6 +75,14 @@ let g:ycm_show_diagnostics_ui = 0
 set ignorecase
 set incsearch
 set nohlsearch
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+map f/ <Plug>(incsearch-fuzzy-/)
+map f? <Plug>(incsearch-fuzzy-?)
+map fg/ <Plug>(incsearch-fuzzy-stay)
 
 " Clipboard
 set clipboard=unnamedplus
@@ -142,7 +153,7 @@ map <C-K> <Plug>(operator-clang-format)
 " YouCompleteMe aka YCM
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_global_ycm_extra_conf = '~/dotfiles/global_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = './global_extra_conf.py'
 let g:ycm_log_level = 'error'
 
 " NERDtree

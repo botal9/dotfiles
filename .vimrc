@@ -84,6 +84,7 @@ let g:ycm_show_diagnostics_ui = 0
 
 " Search
 set ignorecase
+set smartcase
 set incsearch
 set nohlsearch
 

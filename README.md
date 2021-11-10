@@ -1,3 +1,4 @@
 # Pump ur vim
 
-All you need is `:PlugInstall`.
+* sudo apt install vim-gui-common
+* `:PlugInstall`

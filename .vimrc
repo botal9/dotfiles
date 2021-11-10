@@ -98,6 +98,7 @@ map fg/ <Plug>(incsearch-fuzzy-stay)
 
 " Clipboard
 set clipboard=unnamedplus
+set mouse=v
 
 " For coding
 if !exists("g:syntax_on")
